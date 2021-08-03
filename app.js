@@ -10,7 +10,7 @@ app.use(express.json({ extended: false }))
 app.use(logicRoute)
 
 app.use('/', (req, res) => {
-    res.send('Redirected');
+    res.send('Please open the end point. The request should be: { "numbers": [2, 3,...]');
 })
 
 app.listen(PORT, () => {
