@@ -1,14 +1,16 @@
 exports.postLogic = (req, res, next) => {
     console.log("Request:", req.body);
-    var array = req.body.array;
+    var numbers = req.body.numbers;
     var evenArray = [];
     var oddArray = [];
 
     var finalArray = [];
 
-    array.map((num) => {
+    numbers.map((num) => {
         finalArray.push(Number(num));
     })
+
+    console.log(finalArray);
 
     var numericChecker = finalArray.filter(function (num) {
         return isNaN(num);
@@ -26,11 +28,11 @@ exports.postLogic = (req, res, next) => {
     }
 
     if (!numericChecker && !floatCheker) {
-        array.map((num) => {
+        finalArray.map((num) => {
             if (!(parseInt(num) % 2))
-                evenArray.push(parseInt(num));
+                evenArray.push(num);
             else
-                oddArray.push(parseInt(num));
+                oddArray.push(num);
         })
 
         res.send({
